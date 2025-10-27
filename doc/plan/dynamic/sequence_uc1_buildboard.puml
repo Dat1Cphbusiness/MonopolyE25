@@ -35,9 +35,10 @@ return field
 
 end
 
-'indsæt kald til readCardData
+'indsæt kald til readData for at indlæse chance kort data
 'indsæt kald til konstruktoren i CardDeck
 'indsæt kald til createCards
+'indsæt et loop
 'indsæt kald til konstruktoren i Card
 
 return board
