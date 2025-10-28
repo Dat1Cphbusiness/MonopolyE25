@@ -1,4 +1,4 @@
-/*
+package util;/*
 *  Utility class to persist the Strings in an ArrayList
 *  To use, each object in a list must first be serialized (field values of the object are added to the same String, separated by comma)
 *

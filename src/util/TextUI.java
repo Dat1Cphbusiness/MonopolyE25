@@ -1,4 +1,4 @@
-
+package util;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -26,6 +26,7 @@ public class TextUI {
             System.out.println(i+1+". "+list.get(i));
         }
     }
+
     public void displayMsg(String msg){
         System.out.println(msg);
 
