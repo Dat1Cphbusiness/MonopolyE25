@@ -32,7 +32,7 @@ public class TextUI {
 
     }
     public int promptNumeric(String msg){
-        displayMsg(msg);                       //Stille brugeren et spørgsmål
+        displayMsg(msg);                               //Stille brugeren et spørgsmål
         String input = sc.nextLine();                  //Give brugere et sted at placere sit svar og vente på svaret
         int numInput = Integer.parseInt(input);        //Konvertere svaret til et tal
 
@@ -40,9 +40,23 @@ public class TextUI {
     }
 
     public String promptText(String msg){
-        displayMsg(msg);         //Stille brugeren et spørgsmål
+        displayMsg(msg);                       //Stille brugeren et spørgsmål
         String input = sc.nextLine();          //Give brugere et sted at placere sit svar og vente på svaret
 
         return input;
+    }
+
+    public boolean promptBinary(String msg){
+        System.out.println(msg);
+        while (true) {
+                String choice = sc.nextLine();
+                if (choice.equalsIgnoreCase("Y")) {
+                    return true;
+                } else if (choice.equalsIgnoreCase("N")) {
+                    return false;
+                } else {
+                System.out.println("Please enter Y or N");
+            }
+        }
     }
 }
