@@ -51,10 +51,10 @@ public class TextUI {
         displayMsg(msg);
         String input = sc.nextLine();
 
-        if (input.equals("Y") || input.equals("y"))
+        if (input.equalsIgnoreCase("Y"))
         {
             return true;
-        } else if (input == "N" || input == "n")
+        } else if (input.equalsIgnoreCase("N"))
         {
             return false;
         } else
