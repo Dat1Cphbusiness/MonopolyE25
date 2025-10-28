@@ -1,3 +1,6 @@
+import util.FileIO;
+import util.TextUI;
+
 import java.util.ArrayList;
 
 
@@ -8,6 +11,8 @@ public class Game {
     private ArrayList<Player> players;
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
+
+
     public Game(String name, int maxPlayers){
         this.name = name;
         this.maxPlayers = maxPlayers;
