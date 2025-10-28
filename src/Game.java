@@ -4,7 +4,6 @@ import util.TextUI;
 import java.util.ArrayList;
 
 
-
 public class Game {
 
     private String name;
