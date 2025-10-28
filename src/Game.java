@@ -22,6 +22,7 @@ public class Game {
 
     public void startSession(){
         ArrayList<String> data = io.readData("data/playerData.csv");
+        ui.displayMsg("Velkommen til Matador");
         if(!data.isEmpty()){
             for(String s : data){
                 String[] values =  s.split(",");//  "tess, 0"
