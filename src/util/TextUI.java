@@ -48,6 +48,7 @@ public class TextUI {
 
     public boolean promptBinary(String msg){
         System.out.println(msg);
+        //test
         String input = sc.nextLine();
         if(input.equals("Y")){
             return true;
