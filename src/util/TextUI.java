@@ -8,7 +8,8 @@ public class TextUI {
 
     private static Scanner sc = new Scanner(System.in);
 
-    public ArrayList<String> promptChoice( ArrayList<String> options, int limit, String msg){
+
+    public ArrayList<String> promptChoice(ArrayList<String> options, int limit, String msg) {
         displayMsg(msg);
         displayList(options, "");
         ArrayList<String> choices = new ArrayList<>();  //Lave en beholder til at gemme brugerens valg
@@ -45,4 +46,20 @@ public class TextUI {
 
         return input;
     }
+
+    public boolean promptBinary(String msg) {
+        System.out.println(msg);
+        while (true) {
+            String input = sc.nextLine();
+            if (input.equalsIgnoreCase("y")) {
+                return true;
+            } else if (input.equalsIgnoreCase("n")) {
+                return false;
+            } else {
+                System.out.println("Pls enter y or n");
+            }
+        }
+    }
 }
+
+
