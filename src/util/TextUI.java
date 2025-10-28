@@ -45,4 +45,18 @@ public class TextUI {
 
         return input;
     }
+
+    public boolean promptBinary(String msg){
+        displayMsg(msg);
+        String input = sc.nextLine();
+        if(input.equalsIgnoreCase("Y")){
+            return true;
+        }
+        else if(input.equalsIgnoreCase("N")){
+            return false;
+        }
+        else{
+            return promptBinary(msg);
+        }
+    }
 }
