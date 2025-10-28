@@ -45,4 +45,18 @@ public class TextUI {
 
         return input;
     }
-}
+    public boolean promptBinary(String msg) {
+        displayMsg(msg);
+        String input = sc.nextLine();
+        if (input.equals("Y") || input.equals("y")) {
+            return true;
+        } else if (input.equals("N") || input.equals("n")) {
+            return false;
+        } else {
+            System.out.println("Du skal vælge indtaste Y eller N");
+            promptBinary(msg);
+            return false;
+        }
+    }
+
+    }
