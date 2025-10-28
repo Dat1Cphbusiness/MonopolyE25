@@ -51,13 +51,15 @@ public class TextUI {
         displayMsg(msg);
         String input = sc.nextLine();
 
-        if (input == "Y" || input == "y")
+        if (input.equals("Y") || input.equals("y"))
         {
             return true;
         } else if (input == "N" || input == "n")
         {
             return false;
-        }
+        } else
+        {
         return promptBinary("Must be Y or N");
+        }
     }
 }
