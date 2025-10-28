@@ -19,5 +19,6 @@ public class Main {
         // missing here is the logic of the game
 
         g.endSession();
+
     }
 }
