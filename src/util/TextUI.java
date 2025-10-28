@@ -45,4 +45,19 @@ public class TextUI {
 
         return input;
     }
+
+    public boolean promptBinary(String msg) {
+        System.out.println(msg + " (Y/N): ");
+        String input = sc.nextLine().trim();
+
+        if (input.equalsIgnoreCase("Y")) {
+            return true;
+        } else if (input.equalsIgnoreCase("N")) {
+            return false;
+        } else {
+            System.out.println("Ugyldigt input - prøv igen.");
+            return promptBinary(msg);
+
+        }
+    }
 }
