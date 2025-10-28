@@ -45,4 +45,18 @@ public class TextUI {
 
         return input;
     }
+
+    public boolean promptBinary(String msg){
+        System.out.println(msg);
+        String input = sc.nextLine();
+        if(input.equals("Y")){
+            return true;
+        }
+        else if (input.equals("N")){
+            return false;
+        }
+        else {
+            return promptBinary(msg);
+        }
+    }
 }
