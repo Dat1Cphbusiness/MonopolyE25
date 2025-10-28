@@ -21,6 +21,7 @@ public class Game {
 
 
     public void startSession(){
+        ui.displayMsg("Velkommen til Matador");
         ArrayList<String> data = io.readData("data/playerData.csv");
         if(!data.isEmpty()){
             for(String s : data){
