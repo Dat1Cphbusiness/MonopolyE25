@@ -15,6 +15,7 @@ public class Main {
 
         Game g = new Game("Yatzy",3);
         g.startSession();
+        System.out.println("Game started");
 
         // missing here is the logic of the game
 
