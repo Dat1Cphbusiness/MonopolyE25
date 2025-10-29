@@ -31,11 +31,18 @@ public class TextUI {
         System.out.println(msg);
 
     }
-    public int promptNumeric(String msg){
-        displayMsg(msg);                       //Stille brugeren et spørgsmål
-        String input = sc.nextLine();                  //Give brugere et sted at placere sit svar og vente på svaret
-        int numInput = Integer.parseInt(input);        //Konvertere svaret til et tal
 
+    public int promptNumeric(String msg) {
+        int numInput = 0;
+        try {
+            displayMsg(msg);                       //Stille brugeren et spørgsmål
+            String input = sc.nextLine();                  //Give brugere et sted at placere sit svar og vente på svaret
+            numInput = Integer.parseInt(input);
+
+
+        } catch (NumberFormatException e) {
+            System.err.println("Indtast et nummer, tal gælder ikke");
+        }
         return numInput;
     }
 
