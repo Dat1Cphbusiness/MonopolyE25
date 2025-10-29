@@ -2,6 +2,7 @@ import util.FileIO;
 import util.TextUI;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Game {
@@ -11,7 +12,7 @@ public class Game {
     private ArrayList<Player> players;
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
-
+    Player currentPlayer;
 
     public Game(String name, int maxPlayers){
         this.name = name;
@@ -40,11 +41,23 @@ public class Game {
 
     public void registerPlayers(){
 
+        int totalPlayers = ui.promptNumeric("Tast et antal deltagere");
+        //PROBLEM brugeren kan have skrevet 100
 
-        while(this.players.size() < this.maxPlayers) {
+
+        while(totalPlayers <2 || totalPlayers >6){
+
+            ui.displayMsg("Ugyldigt tal.");
+            totalPlayers = ui.promptNumeric("Tast et antal deltagere");
+
+        }
+
+        while(players.size() < totalPlayers) {
             String playerName = ui.promptText("Tast spiller navn");
             this.createPlayer(playerName, 0);
         }
+        Collections.shuffle(players);
+
     }
 
 
@@ -58,6 +71,34 @@ public class Game {
         }
 
     }
+
+
+
+    public void runGameLoop(){
+
+        this.currentPlayer = players.get(0);
+
+        if(endsWithS()){
+            ui.displayMsg("Det er "+ currentPlayer.getName()+"' tur");
+
+        }else{
+
+            ui.displayMsg("Det er "+ currentPlayer.getName()+"'s tur");
+        }
+
+    }
+
+    private boolean endsWithS(){
+
+        int n = currentPlayer.getName().length();
+        char last = currentPlayer.getName().charAt(n-1);
+        if(last == 's' || last == 'S'){
+           return true;
+        }else {
+            return false;
+        }
+    }
+
 
     public void endSession() {
         ArrayList<String> playerData = new ArrayList<>();
