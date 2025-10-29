@@ -46,10 +46,10 @@ public class Game {
 
         int totalPlayers = ui.promptNumeric("Tast antal spillere");
         if (totalPlayers < 2) {
-            System.out.println("Der skal mindst være 2 spillere");
+            ui.displayMsg("Der skal mindst være 2 spillere");
             registerPlayers();
         } else if (totalPlayers > 6){
-            System.out.println("Der må maksimalt være 6 spillere");
+            ui.displayMsg("Der må maksimalt være 6 spillere");
             registerPlayers();
         } else {
         while(this.players.size() < totalPlayers) {
@@ -87,6 +87,6 @@ public class Game {
 
     public void runGameloop(){
         this.currentPlayer = players.get(0);
-        System.out.println("Det er " +currentPlayer.getName()+"s tur!");
+        ui.displayMsg("Det er " +currentPlayer.getName()+"s tur!");
     }
 }
