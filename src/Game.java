@@ -2,6 +2,9 @@ import util.FileIO;
 import util.TextUI;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Random;
 
 
 public class Game {
@@ -11,6 +14,7 @@ public class Game {
     private ArrayList<Player> players;
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
+    Player currentPlayer;
 
 
     public Game(String name, int maxPlayers){
@@ -40,25 +44,34 @@ public class Game {
 
     public void registerPlayers(){
 
-
-        while(this.players.size() < this.maxPlayers) {
+        int totalPlayers = ui.promptNumeric("Tast antal spillere");
+        if (totalPlayers < 2) {
+            System.out.println("Der skal mindst være 2 spillere");
+            registerPlayers();
+        } else if (totalPlayers > 6){
+            System.out.println("Der må maksimalt være 6 spillere");
+            registerPlayers();
+        } else {
+        while(this.players.size() < totalPlayers) {
             String playerName = ui.promptText("Tast spiller navn");
             this.createPlayer(playerName, 0);
         }
-    }
+            }
+        }
+
 
 
     private void createPlayer(String name, int score){
         Player p = new Player(name, score);
         players.add(p);
     }
-    public void displayPlayers(){
-        for(Player p:players){
+    public void displayPlayers() {
+        for (Player p : players) {
             System.out.println(p);
         }
+        Collections.shuffle(players);
 
     }
-
     public void endSession() {
         ArrayList<String> playerData = new ArrayList<>();
 
@@ -70,5 +83,10 @@ public class Game {
 
         }
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
+    }
+
+    public void runGameloop(){
+        this.currentPlayer = players.get(0);
+        System.out.println("Det er " +currentPlayer.getName()+"s tur!");
     }
 }
