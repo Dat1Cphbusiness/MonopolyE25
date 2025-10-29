@@ -16,6 +16,7 @@ public class Main {
         Game g = new Game("Yatzy",3);
         g.startSession();
 
+        g.runGameLoop();
         // missing here is the logic of the game
 
         g.endSession();
