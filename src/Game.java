@@ -1,6 +1,7 @@
 import util.FileIO;
 import util.TextUI;
 
+import java.util.*;
 import java.util.ArrayList;
 
 
@@ -38,13 +39,30 @@ public class Game {
 
 
 
-    public void registerPlayers(){
+    public void registerPlayers() {
 
+        minPlayers = 2;
+        maxPlayers = 6;
 
-        while(this.players.size() < this.maxPlayers) {
-            String playerName = ui.promptText("Tast spiller navn");
-            this.createPlayer(playerName, 0);
+        int totalPlayers = ui.promptNumeric("Indtast antal spillere:");
+
+        if (totalPlayers >= minPlayers && totalPlayers <= maxPlayers)
+        {
+            while(this.players.size() < totalPlayers) {
+                String playerName = ui.promptText("Tast spiller navn");
+                this.createPlayer(playerName, 0);
+            }
+            ui.displayMsg("Spillere registreret");
+
+        } else
+        {
+            ui.displayMsg("Ukorrekt tal, vælg tal mellem 2 og 6.");
+            registerPlayers();
         }
+
+        Collections.shuffle(players); // Randomizes list of players
+
+
     }
 
 
