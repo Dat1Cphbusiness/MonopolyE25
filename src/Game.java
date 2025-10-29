@@ -9,6 +9,8 @@ public class Game {
 
     private String name;
     private int maxPlayers;
+    private int minPlayers;
+    private Player currentPlayer;
     private ArrayList<Player> players;
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
@@ -88,5 +90,11 @@ public class Game {
 
         }
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
+    }
+
+    public void runGameLoop()
+    {
+        currentPlayer = players.get(0);
+        ui.displayMsg("Spiller " + currentPlayer.getName() + " starter!");
     }
 }
