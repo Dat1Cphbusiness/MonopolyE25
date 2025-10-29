@@ -2,6 +2,7 @@ import util.FileIO;
 import util.TextUI;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Game {
@@ -9,6 +10,8 @@ public class Game {
     private String name;
     private int maxPlayers;
     private ArrayList<Player> players;
+    private int totalPlayers = 0;
+    private int minPlayers = 2;
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
 
@@ -39,12 +42,19 @@ public class Game {
 
 
     public void registerPlayers(){
+        while (invalidNumberOfPlayers()) {
+            totalPlayers = ui.promptNumeric("Tast antal Spillere");
 
+            if (invalidNumberOfPlayers()) {
+                ui.displayMsg("Vælg mellem " + minPlayers + " og " + maxPlayers + " spillere.");
+            }
+        }
 
-        while(this.players.size() < this.maxPlayers) {
+        while(this.players.size() < totalPlayers) {
             String playerName = ui.promptText("Tast spiller navn");
             this.createPlayer(playerName, 0);
         }
+        Collections.shuffle(players);
     }
 
 
@@ -53,7 +63,7 @@ public class Game {
         players.add(p);
     }
     public void displayPlayers(){
-        for(Player p:players){
+        for(Player p : players){
             System.out.println(p);
         }
 
@@ -62,7 +72,7 @@ public class Game {
     public void endSession() {
         ArrayList<String> playerData = new ArrayList<>();
 
-        //serialiserer player objekterner
+        //serializer player objekterne
         for(Player p: players){
 
             String s = p.toString();
@@ -70,5 +80,14 @@ public class Game {
 
         }
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
+    }
+
+    public void runGameLoop() {
+        Player currentPlayer = players.getFirst();
+        ui.displayMsg("Det er " + currentPlayer.getName() + " der skal spille.");
+    }
+
+    private boolean invalidNumberOfPlayers() {
+        return totalPlayers < minPlayers || totalPlayers > maxPlayers;
     }
 }
