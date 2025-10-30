@@ -12,11 +12,9 @@ class Game{
  - String name
  - ArrayList<Player> players
  - Player currentPlayer
- - CardDeck cardDeck
  - Board board
  - Dice dice
  'utilities
-  - String playerDataPath
   - TextUI ui
   - FileIO io
   'Contructor
@@ -25,7 +23,6 @@ class Game{
  - void startSession()
  - void createPlayer(String name, int balance)
  - void displayPlayers()
-  - void loadPlayerData()
  - void registerPlayers()
  + void runGameLoop()
  - void throwAndMove()
@@ -36,9 +33,12 @@ class Game{
 
 class Player{
 - String name
-- Account account
+- int score
+- int position
 - ArrayList<Field> deeds
+
 + Player(String name, int startAmount)
+
 + int updatePosition(int value)
 - boolean startPassed()
 + boolean buyProperty(Field f)
@@ -50,15 +50,16 @@ class Player{
 + String getName()
 + int getBalance()
 }
-class Account{
-- int balance
-+ void deposit(int amount)
-+ boolean withdraw(int amount)
-+ int getBalance()
+
+class Bank{
+
++ void deposit(int amount, Player p)
++ boolean withdraw(int amount, Player p)
+
 }
 
 class Field{
-- String label
+ - String label
  - int ID
  - int cost
  - int income
