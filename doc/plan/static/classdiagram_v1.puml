@@ -27,7 +27,7 @@ class Game{
  + void runGameLoop()
  - void throwAndMove()
  - void landAndAct()
- - void endGame()
+ - void endSession()
 
 }
 
@@ -35,8 +35,8 @@ class Player{
 - String name
 - int balance
 - int position
-- ArrayList<Field> deeds
-- ArrayList<Card> wildcards
+- ArrayList<Property> deeds
+- ArrayList<Card> chanceCards
 
 + Player(String name, int startAmount)
 
@@ -45,8 +45,6 @@ class Player{
 + boolean buyProperty(Field f)
 + boolean pay(int amount)
 + boolean pay(int amount, Player recipient)
-+ void collect(int amount)
-+ void recieve(int amount)
 + String toString()
 + String getName()
 + int getBalance()
@@ -54,9 +52,11 @@ class Player{
 }
 
 class Bank{
-#+ int balance
-# + void deposit(int amount, Player p)
-# + boolean withdraw(int amount, Player p)
+- {static} int balance
++ {static} void deposit(int amount, Player p)
++ {static} boolean withdraw(int amount, Player p)
++ {static} boolean transfer(int amount, Player giver, Player recipient)
++ {static} int getBalance()
 }
 
 class Field{
@@ -79,20 +79,19 @@ class Board{
  + Field getField(int id)
 
 }
-class Property extends Field{
+class Property{
  - Player owner
  - int seriesID
  - boolean isMonopolized
  + Property(int ID, String label, int cost, int income, int seriesID)
 }
 
-class Chance extends Field{
+class Chance{
  - {static} CardDeck cardDeck
  + Chance(int ID, String label)
 }
-class Tax extends Field{
-
- + Tax(int ID, String label)
+class Tax{
+ + Tax(int ID, String label, int cost)
 }
 class CardDeck {
 - Card[] cards
@@ -136,17 +135,21 @@ class FileIO{
 + String[] readData(String path, int length)
 }
 }
+Field <|-- Property: is-a
+Field <|-- Chance: is-a
+Field <|-- Tax: is-a
 Game *-- TextUI
 Main *-- Game
 Game *-- Player: 2-6
 Game *-- FileIO
-Player -- Bank:uses
+Player --> Bank:uses
 Game *-- Board:1
 Board *-- Field:40
-Chance *-- CardDeck:1
+Board ..> CardDeck : creates
+Chance --> CardDeck : uses (static)
 CardDeck *-- Card:100
 Game *-- Dice
-Player *-- Card
-Player *-- Field
+Player o-- Card
+Player o-- Field
 
 @enduml
