@@ -40,16 +40,11 @@ public class Game {
 
 
     public void registerPlayers(){
+        int totalPlayers = 1;
+        ui.displayMsg("Hvor mange deltager?");
 
-        int totalPlayers = ui.promptNumeric("Tast et antal deltagere");
-        //PROBLEM brugeren kan have skrevet 100
-
-
-        while(totalPlayers <2 || totalPlayers >6){
-
-            ui.displayMsg("Ugyldigt tal.");
-            totalPlayers = ui.promptNumeric("Tast et antal deltagere");
-
+        while(totalPlayers < 2 || totalPlayers > 6){
+            totalPlayers = ui.promptNumeric("Tast et tal (min 2 og max "+this.maxPlayers+")");
         }
 
         while(players.size() < totalPlayers) {
@@ -80,9 +75,7 @@ public class Game {
 
         if(endsWithS()){
             ui.displayMsg("Det er "+ currentPlayer.getName()+"' tur");
-
         }else{
-
             ui.displayMsg("Det er "+ currentPlayer.getName()+"'s tur");
         }
 
@@ -105,11 +98,10 @@ public class Game {
 
         //serialiserer player objekterner
         for(Player p: players){
-
             String s = p.toString();
             playerData.add(s);
-
         }
+
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
     }
 }
