@@ -7,8 +7,14 @@ participant "players:ArrayList" as ArrayList
 
  Game -> Game:registerPlayers()
  activate Game
- Game -> TextUI: totalPlayers = promptNumeric("Tast antal deltagere:")
+  Game -> TextUI: displayMsg("Hvor mange skal være med?")
 
+ loop totalPlayers not a valid number
+
+ Game -> TextUI: totalPlayers = promptNumeric("Tast et tal mellem 2 og 6")
+ activate TextUI
+ return 5
+ end
 loop [[\ players.size() < totalPlayers ]]
  Game -> TextUI: name = promptText("Tast navn på spiller:")
  Game -> Game: createPlayer(name, startAmount)
