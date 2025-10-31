@@ -6,8 +6,11 @@ public class Field {
     private int income;
     private String option;
 
-    public Field(int ID, String label, int cost, int income){
-
+    public Field( int ID, String label, int cost, int income) {
+        this.income = income;
+        this.cost = cost;
+        this.ID = ID;
+        this.label = label;
     }
 
     @Override
@@ -16,7 +19,7 @@ public class Field {
     }
 
     public String onLand(Player p){
-        return p + " er landet på " + label;
+        return p.getName() + " er landet på " + this;
     }
 
     public String onAccept(Player p){

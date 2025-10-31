@@ -14,9 +14,6 @@ public class Main {
     public static void main(String[] args) {
 
         Game g = new Game("Matador",6);
-        Board b = new Board(fieldData, cardData);
-        Field f = b.getField(1);
-        System.out.println(f);
 
         g.startSession();
 

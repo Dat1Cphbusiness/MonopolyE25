@@ -13,6 +13,7 @@ public class Game {
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
     Player currentPlayer;
+    private Board b;
 
     public Game(String name, int maxPlayers){
         this.name = name;
@@ -37,6 +38,7 @@ public class Game {
         displayPlayers();
         buildBoard();
 
+
     }
 
  private void buildBoard(){
@@ -44,12 +46,11 @@ public class Game {
      String[] carddata = io.readData("data/carddata.csv",33);
      String[] fielddata = io.readData("data/fielddata.csv", 40);
 
-     System.out.println("tester card data: "+carddata[0]);
-     System.out.println("tester card data: "+fielddata[0]);
+     //System.out.println("tester card data: "+carddata[0]);
+     //System.out.println("tester card data: "+fielddata[0]);
 
-     Board b = new Board(fielddata, carddata);
-     Field f=  b.getField(40);
-     f.onLand();
+    b = new Board(fielddata, carddata);
+
 
  }
 
@@ -105,6 +106,14 @@ public class Game {
         } else {
             ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
         }
+
+
+
+        Field f =  b.getField(40);
+
+
+        String message = f.onLand(currentPlayer);
+        System.out.println(message);
     }
 
     private void landAndAct() {

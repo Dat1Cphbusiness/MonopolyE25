@@ -5,7 +5,7 @@ public class Board {
     String[] cardData;
 
     public Board(String[] fieldData, String[] cardData) {
-        fields = new Field[cardData.length];
+        fields = new Field[fieldData.length];
         this.fieldData = fieldData;
         this.cardData = cardData;
         createFields(fieldData);
@@ -16,11 +16,14 @@ public class Board {
             String[] values = fieldData[i].split(",");
             int id = Integer.parseInt(values[0].trim());
             String type = values[1].trim();
-            String name = values[2].trim();
+            String label = values[2].trim();
             int cost = Integer.parseInt(values[3].trim());
             int income = Integer.parseInt(values[4].trim());
             int serieID = Integer.parseInt(values[5].trim());
-            Field a = new Field(id,type,name,cost,income,serieID);
+
+            Field a = new Field(id,label,cost,income);
+            //switch case for at få instantieret de rigtige subtyper
+
             fields[i] = a;
         }
     }
