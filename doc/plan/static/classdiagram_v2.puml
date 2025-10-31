@@ -92,7 +92,7 @@ class Property{
 }
 
 class Plot{
- + Property(int ID, String label, int cost, int income, int seriesID)
+ + Plot(int ID, String label, int cost, int income, int seriesID)
  + String toString()
   + String onLand(Player p)
   + String onAccept(Player p)
@@ -101,7 +101,7 @@ class Plot{
 
  class Brewery{
 
-  + Property(int ID, String label, int cost, int income, int seriesID)
+  + Brewery(int ID, String label, int cost, int income, int seriesID)
   + String toString()
    + String onLand(Player p)
    + String onAccept(Player p)
@@ -110,7 +110,7 @@ class Plot{
 
   class ShippingLine{
 
-   + Property(int ID, String label, int cost, int income, int seriesID)
+   + ShippingLine(int ID, String label, int cost, int income, int seriesID)
    + String toString()
     + String onLand(Player p)
     + String onAccept(Player p)
