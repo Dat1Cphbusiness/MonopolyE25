@@ -73,12 +73,16 @@ public class Game {
 
         this.currentPlayer = players.get(0);
 
-        if(endsWithS()){
-            ui.displayMsg("Det er "+ currentPlayer.getName()+"' tur");
-        }else{
-            ui.displayMsg("Det er "+ currentPlayer.getName()+"'s tur");
-        }
+        while(continueGame) {
+            this.currentPlayer = players.get(count);
+           throwAndMove();
+            continueGame = ui.promptBinary("Fortsæt? (Y/N)");;
+            count++;
+            if (count >= players.size()){
+                count =0;
 
+            }
+        }
     }
 
     private boolean endsWithS(){
@@ -91,6 +95,16 @@ public class Game {
             return false;
         }
     }
+private void throwAndMove(){
+    if (endsWithS()) {
+        ui.displayMsg("Det er " + currentPlayer.getName() + "' tur");
+    } else {
+        ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
+    }
+}
+    private void landAndAct(){
+
+    }
 
 
     public void endSession() {
@@ -101,7 +115,6 @@ public class Game {
             String s = p.toString();
             playerData.add(s);
         }
-
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
     }
 }
