@@ -14,40 +14,39 @@ public class Game {
     FileIO io = new FileIO();
     Player currentPlayer;
 
-    public Game(String name, int maxPlayers){
+    public Game(String name, int maxPlayers) {
         this.name = name;
         this.maxPlayers = maxPlayers;
         players = new ArrayList<>();
     }
 
 
-    public void startSession(){
+    public void startSession() {
         ui.displayMsg("Welcome to the game.");
         ArrayList<String> data = io.readData("data/playerData.csv");
-        if(!data.isEmpty() && ui.promptBinary("Continue previously saved game? Y/N")){
-            for(String s : data){
-                String[] values =  s.split(",");//  "tess, 0"
+        if (!data.isEmpty() && ui.promptBinary("Continue previously saved game? Y/N")) {
+            for (String s : data) {
+                String[] values = s.split(",");//  "tess, 0"
                 int score = Integer.parseInt(values[1].trim());
-                createPlayer(values[0],score);
+                createPlayer(values[0], score);
             }
 
-        }else{
+        } else {
             registerPlayers();
         }
         displayPlayers();
     }
 
 
-
-    public void registerPlayers(){
+    public void registerPlayers() {
         int totalPlayers = 1;
         ui.displayMsg("Hvor mange deltager?");
 
-        while(totalPlayers < 2 || totalPlayers > 6){
-            totalPlayers = ui.promptNumeric("Tast et tal (min 2 og max "+this.maxPlayers+")");
+        while (totalPlayers < 2 || totalPlayers > 6) {
+            totalPlayers = ui.promptNumeric("Tast et tal (min 2 og max " + this.maxPlayers + ")");
         }
 
-        while(players.size() < totalPlayers) {
+        while (players.size() < totalPlayers) {
             String playerName = ui.promptText("Tast spiller navn");
             this.createPlayer(playerName, 0);
         }
@@ -56,12 +55,13 @@ public class Game {
     }
 
 
-    private void createPlayer(String name, int score){
+    private void createPlayer(String name, int score) {
         Player p = new Player(name, score);
         players.add(p);
     }
-    public void displayPlayers(){
-        for(Player p:players){
+
+    public void displayPlayers() {
+        for (Player p : players) {
             System.out.println(p);
         }
 
@@ -83,16 +83,15 @@ public class Game {
 
             continueGame = ui.promptBinary("Forsæt? (Y/N)");
         }
-
     }
 
-    private boolean endsWithS(){
+    private boolean endsWithS() {
 
         int n = currentPlayer.getName().length();
-        char last = currentPlayer.getName().charAt(n-1);
-        if(last == 's' || last == 'S'){
-           return true;
-        }else {
+        char last = currentPlayer.getName().charAt(n - 1);
+        if (last == 's' || last == 'S') {
+            return true;
+        } else {
             return false;
         }
     }
@@ -101,13 +100,15 @@ public class Game {
     public void endSession() {
         ArrayList<String> playerData = new ArrayList<>();
 
+        ui.displayMsg("Spillet blev afsluttet af " + currentPlayer.getName());
+
         //serialiserer player objekterner
-        for(Player p: players){
+        for (Player p : players) {
             String s = p.toString();//"Tine, 3000"
             playerData.add(s);
         }
 
-       io.saveData(playerData, "data/playerData.csv", "Name, Score");
+        io.saveData(playerData, "data/playerData.csv", "Name, Score");
     }
 
     private void throwAndMove() {
