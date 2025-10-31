@@ -108,6 +108,7 @@ public class Game {
             String s = p.toString();
             playerData.add(s);
         }
+        ui.displayMsg("Spillet afsluttes");
 
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
     }
