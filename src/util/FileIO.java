@@ -53,17 +53,19 @@ public class FileIO {
     public String[] readData(String path, int length){
         String[] data = new String [length];
         File file = new File(path);
-       /* try {
+
+        try {
             Scanner scan = new Scanner(file);
             scan.nextLine(); // skip header "Name, Score"
 
-            while (scan.hasNextLine()) {
-                String line = scan.nextLine();   //  "Egon, 1000000"
-                data.add(line);
+            for(int i = 0; i < data.length; i++){
+                String line = scan.nextLine();
+                data[i] = line;
             }
+
         } catch (FileNotFoundException e) {
             System.out.println("Filen findes ikke");
-        }*/
+        }
         return data;
     }
 }
