@@ -88,24 +88,18 @@ class Property{
 }
 
 class Plot{
- - Player owner
- - int seriesID
- - boolean isMonopolized
+
 
  + Property(int ID, String label, int cost, int income, int seriesID)
  }
 
  class Brewery{
-  - Player owner
-  - int seriesID
-  - boolean isMonopolized
+
   + Property(int ID, String label, int cost, int income, int seriesID)
   }
 
   class ShippingLine{
-   - Player owner
-   - int seriesID
-   - boolean isMonopolized
+
    + Property(int ID, String label, int cost, int income, int seriesID)
    }
 
