@@ -17,6 +17,7 @@ public class Main {
         g.startSession();
 
         // missing here is the logic of the game
+        g.runGameLoop();
 
         g.endSession();
     }
