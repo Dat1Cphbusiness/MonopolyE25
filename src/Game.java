@@ -35,7 +35,7 @@ public class Game {
             registerPlayers();
         }
         displayPlayers();
-
+        buildBoard();
 
     }
 
