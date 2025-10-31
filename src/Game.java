@@ -121,7 +121,6 @@ public class Game {
     }
 
     private boolean endsWithS(){
-
         int n = currentPlayer.getName().length();
         char last = currentPlayer.getName().charAt(n-1);
         if(last == 's' || last == 'S'){
@@ -133,19 +132,14 @@ public class Game {
 
 
     public void endSession() {
-
-
         ui.displayMsg("Spillet blev afsluttet af "+currentPlayer.getName());
         ArrayList<String> playerData = new ArrayList<>();
-
         //serialiserer player objekterner
         for(Player p: players){
             String s = p.toString();//"Tine, 3000"
             playerData.add(s);
         }
-
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
     }
-
 
 }
