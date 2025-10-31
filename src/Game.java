@@ -68,15 +68,20 @@ public class Game {
     }
 
 
+    public void runGameLoop() {
 
-    public void runGameLoop(){
+        int count = 0;
+        boolean continueGame = true;
+        while (continueGame) {
+            if (count == players.size()) {
+                count = 0;
+            }
+            this.currentPlayer = players.get(count);
+            count++;
 
-        this.currentPlayer = players.get(0);
+            throwAndMove();
 
-        if(endsWithS()){
-            ui.displayMsg("Det er "+ currentPlayer.getName()+"' tur");
-        }else{
-            ui.displayMsg("Det er "+ currentPlayer.getName()+"'s tur");
+            continueGame = ui.promptBinary("Forsæt? (Y/N)");
         }
 
     }
@@ -92,7 +97,6 @@ public class Game {
         }
     }
 
-
     public void endSession() {
         ArrayList<String> playerData = new ArrayList<>();
 
@@ -103,5 +107,17 @@ public class Game {
         }
 
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
+    }
+
+    private void throwAndMove() {
+        if (endsWithS()) {
+            ui.displayMsg("Det er " + currentPlayer.getName() + "' tur");
+        } else {
+            ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
+        }
+    }
+
+    private void landAndAct() {
+
     }
 }
