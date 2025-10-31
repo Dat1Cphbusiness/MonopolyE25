@@ -1,0 +1,15 @@
+public class ShippingLine extends Property{
+    public ShippingLine(String label, int ID, int cost, int income) {
+        super(label, ID, cost, income);
+    }
+
+    @Override
+    public String onLand(Player p) {
+        return super.onLand(p);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+}
