@@ -41,10 +41,10 @@ public class Game {
 
  private void buildBoard(){
 
-     //String[] carddata = io.readData("data/carddata.csv",10);
+     String[] carddata = io.readData("data/carddata.csv",33);
      String[] fielddata = io.readData("data/fielddata.csv", 40);
 
-     //System.out.println("tester card data: "+carddata[0]);
+     System.out.println("tester card data: "+carddata[0]);
      System.out.println("tester card data: "+fielddata[0]);
 
      Board b = new Board(fielddata, carddata);
