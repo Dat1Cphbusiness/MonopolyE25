@@ -97,6 +97,21 @@ public class Game {
         }
     }
 
+    private void buildBoard(){
+
+        String[] fielddata =  io.readData("fielddata.csv", 40);
+        String[] carddata =  io.readData("carddata.csv", 100);
+
+
+        Board b = new Board(fielddata, carddata);
+
+        Field f =  b.getField(40);
+        System.out.println(f);
+
+
+    }
+
+
 
     public void endSession() {
 
