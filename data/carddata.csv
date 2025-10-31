@@ -1,4 +1,4 @@
-Message, Income, Cost, Event
+Message; Income; Cost; Event
 
 Ryk tre felter frem;0;0;moveSteps
 Ryk til start og modtag 4000 kr;4000;0;moveToField
