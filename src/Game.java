@@ -35,9 +35,23 @@ public class Game {
             registerPlayers();
         }
         displayPlayers();
+
+
     }
 
+ private void buildBoard(){
 
+     //String[] carddata = io.readData("data/carddata.csv",10);
+     String[] fielddata = io.readData("data/fielddata.csv", 40);
+
+     //System.out.println("tester card data: "+carddata[0]);
+     System.out.println("tester card data: "+fielddata[0]);
+
+     Board b = new Board(fielddata, carddata);
+     Field f=  b.getField(40);
+     f.onLand();
+
+ }
 
     public void registerPlayers(){
         int totalPlayers = 1;
@@ -96,22 +110,6 @@ public class Game {
             return false;
         }
     }
-
-    private void buildBoard(){
-
-        String[] fielddata =  io.readData("fielddata.csv", 40);
-        String[] carddata =  io.readData("carddata.csv", 100);
-
-
-        Board b = new Board(fielddata, carddata);
-
-        Field f =  b.getField(40);
-        System.out.println(f);
-
-        //test også onLand
-
-    }
-
 
 
     public void endSession() {
