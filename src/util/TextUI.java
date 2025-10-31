@@ -31,6 +31,23 @@ public class TextUI {
         System.out.println(msg);
 
     }
+
+    public boolean promptBinary(String msg){
+        displayMsg(msg);
+
+        String input = sc.nextLine();
+
+        String inputUppercase = input.toUpperCase();
+        if(inputUppercase.equals("Y")){
+            return true;
+        } else if (inputUppercase.equals("N")) {
+            return false;
+        } else{
+            displayMsg("Forkert input");
+            return promptBinary(msg);
+        }
+
+    }
     public int promptNumeric(String msg){
         displayMsg(msg);                       //Stille brugeren et spørgsmål
         String input = sc.nextLine();                  //Give brugere et sted at placere sit svar og vente på svaret
