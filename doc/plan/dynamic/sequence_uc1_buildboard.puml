@@ -35,6 +35,12 @@ activate Field
 return field
 
 end
+Board -> CardDeck: new CardDeck(carddata)
+CardDeck -> CardDeck: createCards(carddata)
+loop for each element in carddata
+CardDeck -> Card : new Card(message, income, cost event)
+return
+end
 
 'indsæt kald til readData for at indlæse chance kort data
 'indsæt kald til konstruktoren i CardDeck
