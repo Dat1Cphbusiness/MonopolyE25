@@ -14,12 +14,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileIO {
-
     TextUI ui = new TextUI();
-
     public void saveData(ArrayList<String> list, String path, String header) {
         try {
-
             FileWriter writer = new FileWriter(path);
             writer.write(header + "\n");
             for (String s : list) {
@@ -31,7 +28,6 @@ public class FileIO {
             System.out.println("problem: " + e.getMessage());
         }
     }
-
     public ArrayList<String> readData(String path) {
         ArrayList<String> data = new ArrayList<>();
         File file = new File(path);
@@ -48,12 +44,10 @@ public class FileIO {
         }
         return data;
     }
-
     public String[] readData(String path, int length) {
         String[] data = new String[length];
         File file = new File(path);//...............
         int count = 0;
-
         try {
             Scanner scan = new Scanner(file);
             scan.nextLine();
@@ -61,12 +55,11 @@ public class FileIO {
                 data[count] = scan.nextLine();
                 count++;
             }
-            return data;
+
         } catch (FileNotFoundException e) {
             ui.displayMsg("file not found");
-
         }
-
+        return data;
 
     }
 }
