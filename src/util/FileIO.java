@@ -17,6 +17,7 @@ public class FileIO {
 
 
 
+
     public void saveData(ArrayList<String> list, String path, String header){
         try {
 
@@ -43,6 +44,25 @@ public class FileIO {
                 String line = scan.nextLine();   //  "Egon, 1000000"
                 data.add(line);
             }
+        } catch (FileNotFoundException e) {
+            System.out.println("Filen findes ikke");
+        }
+        return data;
+    }
+
+    public String[] readData(String path, int length){
+        String[] data = new String [length];
+        File file = new File(path);
+
+        try {
+            Scanner scan = new Scanner(file);
+            scan.nextLine(); // skip header "Name, Score"
+
+            for(int i = 0; i < data.length; i++){
+                String line = scan.nextLine();
+                data[i] = line;
+            }
+
         } catch (FileNotFoundException e) {
             System.out.println("Filen findes ikke");
         }
