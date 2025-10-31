@@ -72,19 +72,28 @@ public class Game {
         int count = 0;
         boolean continueGame = true;
 
-        while(continueGame){
+        while(continueGame) {
+
+            this.currentPlayer = players.get(count);
+
+            count++;
 
 
-        this.currentPlayer = players.get(count);
+            if (endsWithS()) {
+                ui.displayMsg("Det er " + currentPlayer.getName() + "' tur");
+            } else {
+                ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
+            }
 
-        count++;
+            if (count >= players.size())
+            {
+                count = 0;
+            } else {
+                continueGame = ui.promptBinary("Fortsæt? (Y/N) ");
+            }
 
-        if(endsWithS()){
-            ui.displayMsg("Det er "+ currentPlayer.getName()+"' tur");
-        }else{
-            ui.displayMsg("Det er "+ currentPlayer.getName()+"'s tur");
         }
-        }
+
 
     }
 
