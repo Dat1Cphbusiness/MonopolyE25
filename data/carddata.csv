@@ -1,0 +1,35 @@
+Message, Income, Cost, Event
+
+Ryk tre felter frem;0;0;moveSteps
+Ryk til start og modtag 4000 kr;4000;0;moveToField
+Du har fødselsdag. Alle giver dig 200 kr;1000;0;recieveFromPlayers
+Modtag legat for værdig trængende;1000;0;reward
+Du har solgt nogle aktier og tjent 1500 kr;1500;0;reward
+Du har modtaget renter af obligationer;500;0;reward
+Du har betalt for meget i skat og modtager 1000 kr;1000;0;reward
+Du har vundet i klasselotteriet;1000;0;reward
+Betal kr. 2000 for reparation af ejendomme;0;2000;paymentTimesProperties
+Betal hospitalsregning på 1000 kr;0;1000;payment
+Betal skolepenge på 2000 kr;0;2000;payment
+Betal 3000 kr for bilforsikring;0;3000;payment
+Betal 500 kr for tandlægeregning;0;500;payment
+Betal 1000 kr i parkeringsbøde;0;1000;payment
+Ryk frem til nærmeste færge og betal dobbelt leje;0;0;takeFerry
+Du har snydt i skat. Ryk i fængsel;0;0;moveToField
+Benyt dette kort til at komme ud af fængslet;0;0;wildcard
+Gå i fængsel. Ryk direkte i fængsel;0;0;moveToField
+Ryk 3 felter tilbage;0;0;moveSteps
+Tag til Rådhuspladsen;0;0;moveToField
+Tag til Frederiksberg Allé. Hvis du passerer Start modtag 4000 kr;4000;0;moveToField
+Tag til Strandvejen. Hvis du passerer Start modtag 4000 kr;4000;0;moveToField
+Du har fået en parkeringsbøde på 500 kr;0;500;payment
+Du har fået penge tilbage i skat;2000;0;reward
+Din ejendomsværdi er steget. Modtag 1000 kr;1000;0;reward
+Du har lavet sort arbejde. Betal 3000 kr i bøde;0;3000;payment
+Betal 200 kr pr. hus og 1000 kr pr. hotel du ejer;0;0;paymentTimesProperties
+Du skal på ferie og betaler 2000 kr;0;2000;payment
+Din ejendom skal males. Betal 1500 kr;0;1500;payment
+Du har fået en arv. Modtag 2000 kr;2000;0;reward
+Du har solgt gamle møbler. Modtag 500 kr;500;0;reward
+Betal 1000 kr i ejendomsskat;0;1000;payment
+Ryk frem til Østergade. Hvis du passerer Start, modtag 4000 kr;4000;0;moveToField
