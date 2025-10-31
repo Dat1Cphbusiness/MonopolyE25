@@ -15,20 +15,20 @@ import java.util.Scanner;
 
 public class FileIO {
 
+    TextUI ui = new TextUI();
 
-
-    public void saveData(ArrayList<String> list, String path, String header){
+    public void saveData(ArrayList<String> list, String path, String header) {
         try {
 
             FileWriter writer = new FileWriter(path);
-            writer.write(header+"\n");
+            writer.write(header + "\n");
             for (String s : list) {
-                writer.write(s+"\n");
+                writer.write(s + "\n");
             }
             writer.close();
 
-        }catch (IOException e) {
-            System.out.println("problem: "+ e.getMessage());
+        } catch (IOException e) {
+            System.out.println("problem: " + e.getMessage());
         }
     }
 
@@ -48,4 +48,26 @@ public class FileIO {
         }
         return data;
     }
+
+    public String[] readData(String path, int length) {
+        String[] data = new String[length];
+        File file = new File(path);//...............
+        int count = 0;
+
+        try {
+            Scanner scan = new Scanner(file);
+            scan.nextLine();
+            while (scan.hasNextLine()) {
+                data[count] = scan.nextLine();
+                count++;
+            }
+            return data;
+        } catch (FileNotFoundException e) {
+            ui.displayMsg("file not found");
+
+        }
+
+
+    }
 }
+
