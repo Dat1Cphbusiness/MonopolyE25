@@ -72,7 +72,6 @@ public class Game {
     public void runGameLoop(){
 
         this.currentPlayer = players.get(0);
-
         if(endsWithS()){
             ui.displayMsg("Det er "+ currentPlayer.getName()+"' tur");
         }else{
