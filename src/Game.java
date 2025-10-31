@@ -83,6 +83,17 @@ public class Game {
 
             continueGame = ui.promptBinary("Forsæt? (Y/N)");
         }
+    }
+
+    private void throwAndMove() {
+        if (endsWithS()) {
+            ui.displayMsg("Det er " + currentPlayer.getName() + "' tur");
+        } else {
+            ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
+        }
+    }
+
+    private void landAndAct() {
 
     }
 
@@ -113,15 +124,5 @@ public class Game {
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
     }
 
-    private void throwAndMove() {
-        if (endsWithS()) {
-            ui.displayMsg("Det er " + currentPlayer.getName() + "' tur");
-        } else {
-            ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
-        }
-    }
 
-    private void landAndAct() {
-
-    }
 }
