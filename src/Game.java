@@ -99,11 +99,14 @@ public class Game {
 
 
     public void endSession() {
+
+
+        ui.displayMsg("Spillet blev afsluttet af "+currentPlayer.getName());
         ArrayList<String> playerData = new ArrayList<>();
 
         //serialiserer player objekterner
         for(Player p: players){
-            String s = p.toString();
+            String s = p.toString();//"Tine, 3000"
             playerData.add(s);
         }
 
