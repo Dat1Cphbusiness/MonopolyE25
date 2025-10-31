@@ -35,6 +35,12 @@ public class Game {
             registerPlayers();
         }
         displayPlayers();
+
+        String[] carddata = io.readData("data/carddata.csv" 10);
+        String[] fielddata = io.readData("data/fielddata.csv", 40);
+
+        System.out.println("tester card data: "+carddata[0]);
+        System.out.println("tester card data: "+fielddata[0]);
     }
 
 
