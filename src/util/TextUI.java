@@ -14,6 +14,7 @@ public class TextUI {
         ArrayList<String> choices = new ArrayList<>();  //Lave en beholder til at gemme brugerens valg
 
         while(choices.size() < limit){             //tjekke om brugeren skal vælge igen
+            String name = promptText("Tast navn på Spiller: ");
 
             int choice = promptNumeric(msg);
             choices.add(options.get(choice-1));

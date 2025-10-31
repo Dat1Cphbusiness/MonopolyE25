@@ -2,6 +2,7 @@ import util.FileIO;
 import util.TextUI;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Game {
@@ -9,6 +10,7 @@ public class Game {
     private String name;
     private int maxPlayers;
     private ArrayList<Player> players;
+    private Player currentPlayer;
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
 
@@ -40,11 +42,20 @@ public class Game {
 
     public void registerPlayers(){
 
+        int totalPlayers = ui.promptNumeric(" Tast antal deltagere: ");
+        if(totalPlayers <= maxPlayers && totalPlayers > 1){
 
-        while(this.players.size() < this.maxPlayers) {
-            String playerName = ui.promptText("Tast spiller navn");
-            this.createPlayer(playerName, 0);
+            while(this.players.size() < totalPlayers) {
+                String playerName = ui.promptText("Tast spiller navn");
+                this.createPlayer(playerName, 0);
+            }
+            Collections.shuffle(players);
+        }else {
+
+            ui.displayMsg("Eroor. Enter a number between 2 and 6");
+            registerPlayers();
         }
+
     }
 
 
@@ -70,5 +81,10 @@ public class Game {
 
         }
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
+    }
+   public void runGameLoop(){
+        currentPlayer = players.get(0);
+        ui.displayMsg("'It is " + currentPlayer.getName()+ "'s turn ");
+
     }
 }
