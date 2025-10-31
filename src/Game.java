@@ -108,6 +108,7 @@ public class Game {
         Field f =  b.getField(40);
         System.out.println(f);
 
+        //test også onLand
 
     }
 
