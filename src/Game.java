@@ -70,14 +70,29 @@ public class Game {
 
 
     public void runGameLoop(){
+        int count = 0;
+        boolean continueGame = true;
+        while(continueGame) {
 
-        this.currentPlayer = players.get(0);
-
-        if(endsWithS()){
-            ui.displayMsg("Det er "+ currentPlayer.getName()+"' tur");
-        }else{
-            ui.displayMsg("Det er "+ currentPlayer.getName()+"'s tur");
+            this.currentPlayer = players.get(count);
+            count += 1;
+            throwAndMove();
+            if (count == players.size()) {
+                count++;
+            }
+            continueGame = ui.promptBinary("Fortsæt? (y/n)");
         }
+    }
+
+    public void throwAndMove(){
+        if (endsWithS()) {
+            ui.displayMsg("Det er " + currentPlayer.getName() + "' tur");
+        } else {
+            ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
+        }
+    }
+
+    public void landAndAct(){
 
     }
 
@@ -101,7 +116,7 @@ public class Game {
             String s = p.toString();
             playerData.add(s);
         }
-
        io.saveData(playerData, "data/playerData.csv", "Name, Score");
+        ui.displayMsg("Spillet er slut");
     }
 }
