@@ -78,22 +78,31 @@ public class Game {
 
             count++;
 
-
-            if (endsWithS()) {
-                ui.displayMsg("Det er " + currentPlayer.getName() + "' tur");
-            } else {
-                ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
-            }
+            throwAndMove();
 
             if (count >= players.size())
             {
                 count = 0;
-            } else {
-                continueGame = ui.promptBinary("Fortsæt? (Y/N) ");
             }
 
-        }
+            continueGame = ui.promptBinary("Fortsæt? (Y/N) ");
 
+
+        }
+    }
+
+
+    private void throwAndMove()
+    {
+        if (endsWithS()) {
+            ui.displayMsg("Det er " + currentPlayer.getName() + "' tur");
+        } else {
+            ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
+        }
+    }
+
+    private void landAndAct()
+    {
 
     }
 
