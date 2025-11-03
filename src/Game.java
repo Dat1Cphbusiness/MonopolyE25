@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class Game {
+public class  Game {
 
     private String name;
     private int maxPlayers;
