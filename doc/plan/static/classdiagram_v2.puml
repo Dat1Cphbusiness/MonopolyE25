@@ -145,10 +145,13 @@ class Card{
 }
 
 class Dice{
+ - int[] diceRoll
  - boolean isDouble
- - doubleDiceCounter
- +int rollDiceSum()
- +boolean getIsDouble()
+ - int doubleDiceCounter
+ + int rollDiceSum()
+ + boolean getIsDouble()
+ + int getDoubleDiceCounter()
+ + void resetDoubleDiceCounter()
  }
 package "util" {
 class TextUI {
