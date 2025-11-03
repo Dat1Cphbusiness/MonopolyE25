@@ -30,8 +30,6 @@ public class Property extends Field {
         // if bought then check if owner has the whole seriesID flag monopolized
         // if no then next players turn
 
-
-
     }
 
     @Override
