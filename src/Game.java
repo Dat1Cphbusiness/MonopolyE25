@@ -102,7 +102,7 @@ public class Game {
 
     private void throwAndMove() {
 
-      /*  ui.displayMsg("Det er " + currentPlayer.getName() + " der skal slå nu");
+        ui.displayMsg("Det er " + currentPlayer.getName() + " der skal slå nu");
 
        int result = dice.rollDiceSum();
        ui.displayMsg(currentPlayer +" slog "+ result);
@@ -111,7 +111,7 @@ public class Game {
         Field f =  b.getField(newPosition);
 
         String message = f.onLand(currentPlayer);
-        System.out.println(message);*/
+        System.out.println(message);
     }
 
     private void landAndAct() {

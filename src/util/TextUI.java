@@ -36,6 +36,7 @@ public class TextUI {
         String input = sc.nextLine();                  //Give brugere et sted at placere sit svar og vente på svaret
         int numInput = Integer.parseInt(input);        //Konvertere svaret til et tal
 
+
         return numInput;
     }
 
