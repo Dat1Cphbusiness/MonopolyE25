@@ -22,8 +22,8 @@ public class CardDeck {
         for (int i=1; i<data.length; i++){
             String[] value = data[i].split(",");
             String message = value[0].trim();
-            int income = value[1].trim();
-            int cost = value[2].trim();
+            int income = Integer.parseInt(value[1]);
+            int cost = Integer.parseInt(value[2]);
             String event = value[3].trim();
             Card c = new Card(message, income, cost, event);
             cards[i-1] = c;
