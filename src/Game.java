@@ -14,7 +14,7 @@ public class  Game {
     FileIO io = new FileIO();
     Player currentPlayer;
     private Board b;
-
+    Dice dice = new Dice();
     public Game(String name, int maxPlayers){
         this.name = name;
         this.maxPlayers = maxPlayers;
@@ -110,12 +110,13 @@ public class  Game {
 
         Field f =  b.getField(newPosition);
 
-        String message = f.onLand(currentPlayer);
-        System.out.println(message);
+
+        landAndAct(f);
     }
 
-    private void landAndAct() {
-
+    private void landAndAct(Field f) {
+        String message = f.onLand(currentPlayer);
+        ui.displayMsg(message);
     }
 
     private boolean endsWithS(){

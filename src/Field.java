@@ -15,7 +15,7 @@ public class Field {
 
     @Override
     public String toString() {
-       return "ID: " + ID + " og label: " + label;
+       return label;
     }
 
     public String onLand(Player p){

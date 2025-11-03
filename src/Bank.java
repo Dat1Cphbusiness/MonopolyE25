@@ -1,28 +1,24 @@
 public class Bank {
-    private int balance = 1000000;
+    private static int balance = 1000000;
 
-    public void deposit(int amount, Player p){
+    public static void deposit(int amount, Player p){
         if(balance > amount) {
             p.setBalance(p.getBalance() + amount);
             balance = balance - amount;
         }
-
     }
-    public boolean withdraw(int amount, Player p){
-        boolean enoughMoney = true;
-        if(getBalance() < amount){
-            enoughMoney = false;
+    public static boolean withdraw(int amount, Player p){
+
+        if(p.getBalance() > amount){
+
+            p.setBalance(p.getBalance()-amount);
+            balance = balance + amount;
+            return true;
         }
 
-        return enoughMoney;
+        return false;
     }
-    public boolean transfer(int amount, Player giver, Player recipient){
-        boolean enoughMoney = true;
-        if(giver.getBalance() < amount){
-            enoughMoney = false;
-        }
-        return enoughMoney;
-    }
+
 
     public int getBalance() {
         return balance;

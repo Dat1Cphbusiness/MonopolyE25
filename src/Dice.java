@@ -12,7 +12,7 @@ public class Dice {
         return doubleDiceCounter;
     }
 
-    int [] diceRoll = new int[1];
+    int [] diceRoll = new int[2];
 
     public int rollDiceSum(){
         Random r = new Random();

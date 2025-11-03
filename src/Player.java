@@ -21,6 +21,7 @@ public class Player {
     public int updatePosition(int value){
 
         this.position =  this.position + value;
+
         if(this.position > 40){
             this.position = this.position - 40;
             Bank bank = new Bank();
