@@ -11,7 +11,13 @@ public class Plot extends Property {
 
     @Override
     public String onLand(Player p) {
-        return super.onLand(p)+" vil du købe?";
+
+        String genericMessage = super.onLand(p);
+        String specificMessage = genericMessage+ " vil du købe?";
+
+
+
+        return specificMessage;
 
         // if owner is current player
         //if yes continue
@@ -32,6 +38,7 @@ public class Plot extends Property {
 
     @Override
     public String onReject(Player p) {
+
         return super.onReject(p);
     }
 

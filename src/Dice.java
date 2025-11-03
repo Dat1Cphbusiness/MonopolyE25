@@ -16,8 +16,8 @@ public class Dice {
 
     public int rollDiceSum(){
         Random r = new Random();
-        diceRoll[0] = r.nextInt(1,6);
-        diceRoll[1] = r.nextInt(1,6);
+        diceRoll[0] = r.nextInt(1,7);
+        diceRoll[1] = r.nextInt(1,7);
 
         if(diceRoll[0] == diceRoll[1]) {
             isDouble = true;
