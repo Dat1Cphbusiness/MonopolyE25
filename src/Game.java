@@ -109,7 +109,7 @@ public class Game {
 
 
 
-        Field f =  b.getField(40);
+        Field f =  b.getField(11);
 
 
         String message = f.onLand(currentPlayer);
