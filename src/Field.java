@@ -1,10 +1,10 @@
 public class Field {
 
-    private  String label;
-    private int ID;
-    private int cost;
-    private int income;
-    private String option;
+    public  String label;
+    public int ID;
+    public int cost;
+    public int income;
+    public String option;
 
     public Field( int ID, String label, int cost, int income) {
         this.income = income;
@@ -15,7 +15,7 @@ public class Field {
 
     @Override
     public String toString() {
-       return label;
+       return label + " " +  ID;
     }
 
     public String onLand(Player p){

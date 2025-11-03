@@ -1,13 +1,12 @@
 public class Property extends Field {
 
-    private Player owner;
-    private int seriesID;
-    private boolean isMonopolized;
+    protected Player owner;
+    protected int seriesID;
+    protected boolean isMonopolized;
 
 
-    public Property(int ID, String label, int cost, int income, int seriesID)
-    {
-        super(ID,  label,  cost,income);
+    public Property(int ID, String label, int cost, int income, int seriesID) {
+        super(ID, label, cost, income);
         this.seriesID = seriesID;
     }
 
@@ -18,7 +17,17 @@ public class Property extends Field {
 
     @Override
     public String onLand(Player p) {
-        return super.onLand(p);
+        String msg = super.onLand(p);
+
+        if (owner == null) {
+            option = "buy";
+            msg += "Vil du købe? (Y/N): ";
+        } else {
+            if (owner != p) {
+                msg+="Du skal betale " + income + " til" + owner;
+                Bank.transfer(cost, p, owner);
+            }
+        }
         //
         // ui.binaryPrompt("Does someone own the property? (Y/N)"
 
@@ -29,6 +38,11 @@ public class Property extends Field {
         // if yes then Buy
         // if bought then check if owner has the whole seriesID flag monopolized
         // if no then next players turn
+
+
+        return msg;
+        if () {
+        }
 
     }
 

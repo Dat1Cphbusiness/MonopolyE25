@@ -12,12 +12,15 @@ public class Plot extends Property {
     @Override
     public String onLand(Player p) {
 
-        String genericMessage = super.onLand(p);
-        String specificMessage = genericMessage+ " vil du købe?";
+        String msg = super.onLand(p);
+            if(p == owner && checkForMonopoly() == true){
+                option = "build";
+                msg += "Vil du bygge en bygning?(Y/N)";
+            }
 
 
 
-        return specificMessage;
+        return msg;
 
         // if owner is current player
         //if yes continue
@@ -40,6 +43,12 @@ public class Plot extends Property {
     public String onReject(Player p) {
 
         return super.onReject(p);
+    }
+
+    public boolean checkForMonopoly(){
+
+        //hvis owner er == p i alle SeriesID
+        return false;
     }
 
 

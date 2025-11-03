@@ -24,8 +24,7 @@ public class Player {
 
         if(this.position > 40){
             this.position = this.position - 40;
-            Bank bank = new Bank();
-            bank.deposit(4000, this);
+            Bank.deposit(4000, this);
         }
 
         return this.position;
