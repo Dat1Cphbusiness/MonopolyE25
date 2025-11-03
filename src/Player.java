@@ -33,6 +33,7 @@ public class Player {
     public int getBalance() {
 
         return balance;
+        //hej
     }
 
     public void setBalance(int balance) {
