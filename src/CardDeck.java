@@ -12,7 +12,7 @@ public class CardDeck {
     }
 
     public Card getNext() {
-        counter = (counter == cards.length) ? this.counter = 0 : this.counter++;
+        counter = (counter == cards.length) ? 0 : counter+1;
         return cards[counter];
     }
 
