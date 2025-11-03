@@ -1,8 +1,8 @@
 public class Property extends Field {
 
-    private Player owner;
+    protected Player owner;
     private int seriesID;
-    private boolean isMonopolized;
+    protected boolean isMonopolized;
 
 
     public Property(int ID, String label, int cost, int income, int seriesID)
@@ -18,7 +18,18 @@ public class Property extends Field {
 
     @Override
     public String onLand(Player p) {
-        return super.onLand(p);
+        String msg = super.onLand(p);
+        if (owner == null){
+            option = "buy";
+                msg += "Vil du købe? (Y/N)";
+
+        }else if() {
+         if(owner != null && p != owner);
+         msg+= "Du skal betale " +income+" til"+owner;
+         Bank bank = new Bank();
+         bank.transfer();
+        }
+        return msg;
         //
         // ui.binaryPrompt("Does someone own the property? (Y/N)"
 
