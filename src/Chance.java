@@ -5,3 +5,4 @@ public class Chance extends Field {
         super(ID, label, cost, income);
     }
 }
+
