@@ -60,9 +60,9 @@ class Bank{
 class Field{
  - String label
  - int ID
- - int cost
- - int income
- - String option
+ # int cost
+ # int income
+ # String option
  + Field(int ID, String label, int cost, int income)
  + String toString()
  + String onLand(Player p)
