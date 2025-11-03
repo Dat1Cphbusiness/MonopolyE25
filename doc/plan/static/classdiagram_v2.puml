@@ -31,25 +31,23 @@ class Game{
 
 }
 
+
 class Player{
 - String name
 - int balance
 - int position
 - ArrayList<Property> deeds
 - ArrayList<Card> chanceCards
-
 + Player(String name, int startAmount)
-
 + int updatePosition(int value)
 - boolean startPassed()
-+ boolean buyProperty(Field f)
-+ boolean pay(int amount)
-+ boolean pay(int amount, Player recipient)
++ boolean buyProperty(buyProperty(Property pf)
 + String toString()
 + String getName()
 + int getBalance()
 + void setBalance(int amount)
 }
+
 
 class Bank{
 - {static} int balance
