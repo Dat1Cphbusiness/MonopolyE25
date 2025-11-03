@@ -167,6 +167,13 @@ class FileIO{
 + String[] readData(String path, int length)
 }
 }
+interface IOption{
+ String onAccept(Player p)
+ String onReject(Player p)
+}
+IOption <|-- Property
+IOption <|-- Tax
+IOption <|-- Prison
 Field <|-- Property: is-a
 Field <|-- Chance: is-a
 Field <|-- Tax: is-a

@@ -101,16 +101,14 @@ public class Game {
     }
 
     private void throwAndMove() {
-        if (endsWithS()) {
-            ui.displayMsg("Det er " + currentPlayer.getName() + "' tur");
-        } else {
-            ui.displayMsg("Det er " + currentPlayer.getName() + "'s tur");
-        }
 
+        ui.displayMsg("Det er " + currentPlayer.getName() + " der skal slå nu");
 
+       int result = dice.rollDiceSum();
+       ui.displayMsg(currentPlayer +" slog "+ result);
+       int newPosition = currentPlayer.updatePosition(result);
 
-        Field f =  b.getField(11);
-
+        Field f =  b.getField(newPosition);
 
         String message = f.onLand(currentPlayer);
         System.out.println(message);
