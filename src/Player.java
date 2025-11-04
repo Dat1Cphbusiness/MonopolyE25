@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+
 public class Player {
     private String name;
     private int balance;
     private int position;
+    private ArrayList<Property> deeds = new ArrayList<>();
     
     public Player(String name, int balance){
         this.name = name;
@@ -25,7 +28,7 @@ public class Player {
         if(this.position > 40){
             this.position = this.position - 40;
             Bank bank = new Bank();
-            bank.deposit(4000, this);
+            Bank.deposit(4000, this);
         }
 
         return this.position;
@@ -38,5 +41,24 @@ public class Player {
 
     public void setBalance(int balance) {
         this.balance = balance;
+    }
+
+    public void setPosition(int i) {
+        this.position = i;
+    }
+
+    public boolean buyProperty(Property pf) {
+        Bank.withdraw(pf.getCost(), this);
+        deeds.add(pf);
+        return true;
+    }
+
+    public int getTotalWorth() {
+        int worth = 0;
+        for(Property deed : deeds) {
+            worth += deed.getCost();
+        }
+        worth += balance;
+        return worth;
     }
 }

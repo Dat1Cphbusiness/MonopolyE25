@@ -20,6 +20,24 @@ public class Bank {
     }
 
 
+
+        public static boolean transfer(int amount, Player giver, Player recipient){
+            boolean canPayFullAmount = withdraw(amount,giver);
+        if(!canPayFullAmount){
+
+            amount = giver.getBalance();
+
+
+            return true;
+        }
+
+            withdraw(amount, giver);
+            deposit(amount, recipient);
+
+
+        return false;
+    }
+
     public int getBalance() {
         return balance;
     }
