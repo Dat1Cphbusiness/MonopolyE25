@@ -25,7 +25,5 @@ public class Tax extends Field{
         ui.displayMsg("`\n Du skal betale et beløb der svarere til 10% af dine aktiver. " +
                 "\n Vil du hellere betale et fast beløb på "+ this.cost + "kr? Y/N \n");
         return s;
-
-
     }
 }
