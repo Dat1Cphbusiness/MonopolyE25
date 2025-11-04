@@ -41,9 +41,6 @@ public class Property extends Field {
 
 
         return msg;
-        if () {
-        }
-
     }
 
     @Override
