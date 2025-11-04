@@ -31,6 +31,8 @@ public class Player {
         return this.position;
     }
 
+
+
     public int getBalance() {
 
         return balance;
