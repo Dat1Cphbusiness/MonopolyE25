@@ -1,13 +1,15 @@
+import util.TextUI;
+
 public class Property extends Field {
 
-    private Player owner;
+    protected Player owner;
     private int seriesID;
     private boolean isMonopolized;
+    private Bank b = new Bank();
 
 
-    public Property(int ID, String label, int cost, int income, int seriesID)
-    {
-        super(ID,  label,  cost,income);
+    public Property(int ID, String label, int cost, int income, int seriesID) {
+        super(ID, label, cost, income);
         this.seriesID = seriesID;
     }
 
@@ -18,8 +20,17 @@ public class Property extends Field {
 
     @Override
     public String onLand(Player p) {
-        return super.onLand(p);
-        //
+        String msg = super.onLand(p);
+        if (owner == null) {
+            if (owner != p) {
+                msg += "Du skal betale " + income + " til " + owner;
+                b.transfer(income, owner);
+            }
+            option += "buy";
+            msg += "Vil du købe? (Y/N)";
+            return msg;
+        }
+
         // ui.binaryPrompt("Does someone own the property? (Y/N)"
 
         // if yes then check if owner is currentPlayer
