@@ -31,6 +31,8 @@ public class Player {
         return this.position;
     }
 
+
+
     public int getBalance() {
 
         return balance;
@@ -38,5 +40,9 @@ public class Player {
 
     public void setBalance(int balance) {
         this.balance = balance;
+    }
+
+    public void setPosition(int i) {
+        this.position = i;
     }
 }

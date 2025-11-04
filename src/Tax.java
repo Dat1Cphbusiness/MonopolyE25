@@ -1,14 +1,31 @@
+import util.TextUI;
+
 public class Tax extends Field{
     public Tax(int ID, String label, int cost, int income) {
         super(ID, label, cost, income);
     }
     @Override
+    public String onLand(Player p){
+        String s = super.onLand(p)+ "\n Du skal betale et beløb der svarer til 10% af dine aktiver. " +
+                "Vil du hellere betale et fast beløb på " +
+                this.cost+"kr? Y/N \n";;
+
+        return s;
+    }
+
+    @Override
     public String onAccept(Player p) {
-        return super.onAccept(p);
+
+        Bank.withdraw(4000, p);
+        return "Banktransfer succesfuldt";
     }
 
     @Override
     public String onReject(Player p) {
-        return super.onReject(p);
+
+        int amount = p.getTotalWorth()*0.1;
+        Bank.withdraw(amount,p);
+
+        return amount+" er blevet trukket fra din konto.";
     }
 }
