@@ -28,7 +28,17 @@ public class Player {
             bank.deposit(4000, this);
         }
 
+
+
+
+
         return this.position;
+    }
+
+
+
+    public int getPosition() {
+        return position;
     }
 
     public int getBalance() {
