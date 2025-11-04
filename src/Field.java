@@ -1,10 +1,10 @@
 public class Field {
 
-    private  String label;
+    private String label;
     private int ID;
-    private int cost;
-    private int income;
-    private String option;
+    protected int cost;
+    protected int income;
+    protected String option;
 
     public Field( int ID, String label, int cost, int income) {
         this.income = income;
@@ -31,4 +31,7 @@ public class Field {
     }
 
 
+    public String getOption() {
+        return option;
+    }
 }

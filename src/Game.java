@@ -114,20 +114,18 @@ public class  Game {
     private void landAndAct(Field f) {
         String message = f.onLand(currentPlayer);
 
-      /*  if(f.option !=null){
+       if(f.getOption() !=null){
             boolean response = ui.promptBinary(message);
             if(response){
                 f.onAccept(currentPlayer);
-
             }else{
-
                 f.onReject(currentPlayer);
             }
 
         }else{
             ui.displayMsg(message);
 
-        }*/
+        }
 
     }
 
