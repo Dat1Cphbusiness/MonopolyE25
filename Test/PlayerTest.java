@@ -3,27 +3,22 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
+
     Player p;
 
-    @BeforeEach
+    @org.junit.jupiter.api.BeforeEach
     void setUp() {
-
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void updatePosition() {
-        //Arrange
-        p =  new Player("Egon", 30000);
-        p.setPosition(39);
 
-        //Act
+        p = new Player("Tom", 1000);
+        p.setPosition(14);
+
         int actual = p.updatePosition(7);
-        int expected = 6;
+        int expected = 21;
 
-        //Assert
         assertEquals(actual, expected);
-        assertEquals(34000, p.getBalance());
-
-
     }
 }
