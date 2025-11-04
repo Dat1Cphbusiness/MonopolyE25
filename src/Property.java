@@ -3,8 +3,8 @@
 public class Property extends Field {
 
     protected Player owner;
-    private int seriesID;
-    private boolean isMonopolized;
+    protected int seriesID;
+    protected boolean isMonopolized;
 
     public Property(int ID, String label, int cost, int income, int seriesID) {
         super(ID, label, cost, income);
