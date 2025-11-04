@@ -27,4 +27,19 @@ public class Bank {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+
+    public static boolean transfer(int amount, Player giver, Player recipient){
+        boolean canPayFullAmount = withdraw(amount, giver);
+        if (canPayFullAmount){
+            deposit(amount, recipient);
+            return true;
+        } else {
+            deposit(giver.getBalance(), recipient);
+            withdraw(giver.getBalance(), giver);
+            return false;
+        }
+    }
+
+
+
 }
