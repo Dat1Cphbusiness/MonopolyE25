@@ -12,6 +12,7 @@ public class Brewery extends Property
 
     @Override
     public String onLand(Player p) {
+        p.getLastDiceRoll();
         return super.onLand(p);
     }
 
