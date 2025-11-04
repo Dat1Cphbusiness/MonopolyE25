@@ -11,14 +11,12 @@ public class Plot extends Property {
 
     @Override
     public String onLand(Player p) {
-
-        String genericMessage = super.onLand(p);
-        String specificMessage = genericMessage+ " vil du købe?";
-
-
-
-        return specificMessage;
-
+        String msg = super.onLand(p);
+        if (owner == p && checkForMonopoly()){
+            option = "build";
+            msg += "Vil du bygge (Y/N)?";
+        }
+        return msg;
         // if owner is current player
         //if yes continue
         //else no
@@ -29,6 +27,10 @@ public class Plot extends Property {
         // if yes then Build
         //else no
 
+    }
+
+    private boolean checkForMonopoly(){
+        return false; // skal tjekke om der er monopol
     }
 
     @Override
