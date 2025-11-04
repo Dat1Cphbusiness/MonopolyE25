@@ -8,8 +8,7 @@ public class Bank {
         }
     }
     public static boolean withdraw(int amount, Player p){
-
-        if(p.getBalance() > amount){
+        if(p.getBalance() >= amount){
 
             p.setBalance(p.getBalance()-amount);
             balance = balance + amount;
@@ -17,6 +16,16 @@ public class Bank {
         }
 
         return false;
+    }
+
+    public static boolean transfer(int amount, Player giver, Player recipient) {
+        boolean canPayFullAmount = withdraw(amount, giver);
+        if (!canPayFullAmount) {
+            amount = giver.getBalance();
+            giver.setBalance(giver.getBalance()-amount);
+        }
+        deposit(amount, recipient);
+        return true;
     }
 
 
