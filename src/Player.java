@@ -8,6 +8,7 @@ public class Player {
 
 
 
+
     
     public Player(String name, int balance){
         this.name = name;
@@ -63,4 +64,41 @@ public class Player {
         netWorth+=this.balance;
         return netWorth;
     }
+
+    public int moveToPosition(int value) {
+        position = value;
+        return value;
+    }
+
+    public boolean imprison(){
+        boolean inPrison = true;
+        moveToPosition(31);
+        return inPrison;
+
+    }
+
+    public boolean freeFromPrison() {
+        boolean inprison = false;
+        return inprison;
+    }
+
+    /*
+    public boolean wildcard(){
+        boolean hasWildcard;
+        return true;
+    }
+
+    public boolean getWildcard(){
+       boolean wildcard = true;
+        return hasWildcard();
+
+    }
+    public void setWildcard(boolean value){
+        hasWildcard() = value;
+    }
+     */
+
+
+
+
 }
