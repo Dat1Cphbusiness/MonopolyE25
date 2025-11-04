@@ -1,14 +1,15 @@
 public class Field {
 
+    protected String onLand;
     private  String label;
     private int ID;
-    private int cost;
+    protected int cost;
     private int income;
     private String option;
 
     public Field( int ID, String label, int cost, int income) {
         this.income = income;
-        this.cost = cost;
+      this.cost = cost;
         this.ID = ID;
         this.label = label;
     }
