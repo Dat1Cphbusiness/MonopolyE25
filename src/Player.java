@@ -38,5 +38,32 @@ public class Player {
 
     public void setBalance(int balance) {
         this.balance = balance;
+
+
     }
+
+    public void moveToPosition(int value) {
+        position=value;
+
+
+    }
+
+    public boolean imprison(){
+       boolean inPrison = true;
+       moveToPosition(31);
+       return inPrison;
+
+    }
+    public boolean freeFromPrison () {
+        boolean inPrison= false;
+        return inPrison;
+    }
+    public boolean getWildcard(){
+        return hasWildcard();
+    }
+    public void setWildcard(boolean value){
+        hasWildcard = value;
+
+    }
+
 }
