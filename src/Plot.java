@@ -29,10 +29,10 @@ public class Plot extends Property {
         int seriesSize = 3;
         ArrayList<Property> deedsInSeries = new ArrayList<>();
 
-        if (seriesID == 0 || seriesID == 1 || seriesID == 9)
+        if (seriesID == 1 || seriesID == 5 || seriesID == 10)
         {
             seriesSize = 2;
-        } else if (seriesID == 3)
+        } else if (seriesID == 2)
         {
             seriesSize = 4;
         }
