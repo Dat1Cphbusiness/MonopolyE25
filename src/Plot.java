@@ -11,8 +11,8 @@ public class Plot extends Property {
 
     @Override
     public String onLand(Player p) {
-        // String genericMessage = super.onLand(p);
-        //String specificMessage = genericMessage+ " vil du købe?";
+       // String genericMessage = super.onLand(p);
+      // String specificMessage = genericMessage+ " vil du købe?";
 
         String msg = super.onLand(p);
         if (owner == p && checkForMonopoly()) {
@@ -34,6 +34,7 @@ public class Plot extends Property {
     }
 
     private boolean checkForMonopoly() {
+
         return false;
     }
 

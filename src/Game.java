@@ -64,7 +64,7 @@ public class  Game {
 
         while(players.size() < totalPlayers) {
             String playerName = ui.promptText("Tast spiller navn");
-            this.createPlayer(playerName, 0);
+            this.createPlayer(playerName, 30000);
         }
         Collections.shuffle(players);
 
@@ -103,7 +103,7 @@ public class  Game {
     private void throwAndMove() {
 
         ui.displayMsg("Det er " + currentPlayer.getName() + " der skal slå nu");
-       int result = 5;//dice.rollDiceSum();
+       int result = 40;//dice.rollDiceSum();
        ui.displayMsg(currentPlayer +" slog "+ result);
        int newPosition = currentPlayer.updatePosition(result);
 
@@ -117,11 +117,11 @@ public class  Game {
        if(f.getOption() !=null){
             boolean response = ui.promptBinary(message);
             if(response){
-                f.onAccept(currentPlayer);
+               message = f.onAccept(currentPlayer);
             }else{
-                f.onReject(currentPlayer);
+                message =f.onReject(currentPlayer);
             }
-
+            ui.displayMsg(message);
         }else{
             ui.displayMsg(message);
 

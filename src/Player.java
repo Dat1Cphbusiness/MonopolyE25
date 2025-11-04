@@ -56,7 +56,7 @@ public class Player {
     }
 
     public int getTotalWorth(){
-        int netWorth=0;
+        int netWorth =0;
         for(Property p: deeds){
             netWorth+=p.cost;
         }
