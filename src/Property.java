@@ -5,7 +5,7 @@ public class Property extends Field {
     private boolean isMonopolized;
 
 
-
+    Bank b = new Bank;
 
     public Property(int ID, String label, int cost, int income, int seriesID)
     {
@@ -26,14 +26,14 @@ public class Property extends Field {
         {
             option += "Buy";
             msg += "Vil du købe? (Y/N)";
-            return msg;
         } else {
             if (owner != null && p != owner)
             {
                 msg += "Du skal betale " + income + " til " + owner;
-
+                b.transfer(amount, p, owner);
             }
         }
+        return msg;
         //
         // ui.binaryPrompt("Does someone own the property? (Y/N)"
 
