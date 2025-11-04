@@ -7,8 +7,10 @@ public class Player {
     private ArrayList<Property>deeds = new ArrayList<>();
 
 
+    public ArrayList<Property> getDeeds() {
+        return deeds;
+    }
 
-    
     public Player(String name, int balance){
         this.name = name;
         this.balance = balance;
@@ -63,4 +65,5 @@ public class Player {
         netWorth+=this.balance;
         return netWorth;
     }
+
 }
