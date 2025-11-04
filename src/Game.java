@@ -103,20 +103,32 @@ public class  Game {
     private void throwAndMove() {
 
         ui.displayMsg("Det er " + currentPlayer.getName() + " der skal slå nu");
-
-       int result = dice.rollDiceSum();
+       int result = 5;//dice.rollDiceSum();
        ui.displayMsg(currentPlayer +" slog "+ result);
        int newPosition = currentPlayer.updatePosition(result);
 
         Field f =  b.getField(newPosition);
-
-
         landAndAct(f);
     }
 
     private void landAndAct(Field f) {
         String message = f.onLand(currentPlayer);
-        ui.displayMsg(message);
+
+      /*  if(f.option !=null){
+            boolean response = ui.promptBinary(message);
+            if(response){
+                f.onAccept(currentPlayer);
+
+            }else{
+
+                f.onReject(currentPlayer);
+            }
+
+        }else{
+            ui.displayMsg(message);
+
+        }*/
+
     }
 
     private boolean endsWithS(){
