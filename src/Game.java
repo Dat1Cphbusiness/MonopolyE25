@@ -104,7 +104,7 @@ public class  Game {
 
         ui.displayMsg("Det er " + currentPlayer.getName() + " der skal slå nu");
 
-       int result = dice.rollDiceSum();
+       int result = 5; //dice.rollDiceSum();
        ui.displayMsg(currentPlayer +" slog "+ result);
        int newPosition = currentPlayer.updatePosition(result);
 

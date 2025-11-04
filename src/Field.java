@@ -2,7 +2,7 @@ public class Field {
 
     private  String label;
     private int ID;
-    private int cost;
+    protected int cost;
     private int income;
     private String option;
 
@@ -20,6 +20,7 @@ public class Field {
 
     public String onLand(Player p){
         return p.getName() + " er landet på " + this;
+
     }
 
     public String onAccept(Player p){
