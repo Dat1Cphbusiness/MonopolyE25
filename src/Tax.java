@@ -13,7 +13,7 @@ public class Tax extends Field {
     public String onReject(Player p) {
         int procent = (p.getTotalWorth()/10);
         Bank.withdraw(procent,p);
-        return super.onReject(p); + "10 % er blevet trukket fra din saldo: " + procent;
+        return super.onReject(p) + "10 % er blevet trukket fra din saldo: " + procent;
     }
 
     @Override
