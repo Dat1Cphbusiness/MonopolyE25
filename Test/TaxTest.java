@@ -28,7 +28,15 @@ class TaxTest {
     }
 
     @Test
-    void onReject() {
-
+    void onRejectTest() {
+        Field f = game.b.getField(5);
+        //Act
+        String msg = f.onLand(p);
+        f.onReject(p);
+        System.out.println(msg);
+        //Assert
+        int expected = 27000;// p har 3000 kr mindre end før, da 10% af 30000 er 3000;
+        int actual = p.getBalance();
+        assertEquals(expected, actual);
     }
 }
