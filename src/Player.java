@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Player {
+    public boolean setWildcard;
     private String name;
     private int balance;
     private int position;
@@ -10,10 +11,10 @@ public class Player {
     private int diceRoll;
 
 
-    public Player(String name, int balance, boolean hasWildcard){
+    public Player(String name, int balance){
         this.name = name;
         this.balance = balance;
-        this.hasWildcard = hasWildcard;
+       // this.hasWildcard = hasWildcard;
     }
 
     @Override
@@ -90,5 +91,9 @@ public class Player {
 
     public void setHasWildcard(boolean hasWildcard) {
         this.hasWildcard = hasWildcard;
+    }
+
+    public ArrayList<Property> getDeeds() {
+            return this.deeds;
     }
 }

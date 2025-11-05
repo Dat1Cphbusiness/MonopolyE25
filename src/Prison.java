@@ -4,7 +4,7 @@ public class Prison extends Field {
     }
     @Override
     public String onAccept(Player p) {
-        p.setWildcard = false;
+        p.setWildcard(false);
         String msg = "\n Du har kontakter hos politiet og løslades.";
         return super.onAccept(p);
     }

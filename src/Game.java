@@ -103,7 +103,7 @@ public class  Game {
     private void throwAndMove() {
 
         ui.displayMsg("Det er " + currentPlayer.getName() + " der skal slå nu");
-       int result = 40;//dice.rollDiceSum();
+       int result = 31;//dice.rollDiceSum();
        ui.displayMsg(currentPlayer +" slog "+ result);
        int newPosition = currentPlayer.updatePosition(result);
 
