@@ -4,50 +4,31 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TaxTest {
-    Player p;
-
+    Game game = new Game("Matador", 6);
+    Player p = new Player ("Egon", 30000);
     @BeforeEach
     void setUp() {
+        //Arrange
+        game.buildBoard();
+
+
     }
 
     @Test
-    void onLand() {
-        p.setPosition(5);
-
-        String expected = s;
-
-        assertEquals();
-
-    }
-
-
-
-    @Test
-    void onAccept() {
-        p = new Player("Egon", 3000);
-
-        Bank.withdraw(4000, p);
-
+    void onAcceptTest() {
+        Field f = game.b.getField(5);
+        //Act
+        String msg = f.onLand(p);
+        f.onAccept(p);
+        System.out.println(msg);
+        //Assert
+        int expected = 26000;// p har 4000 kr mindre end før;
         int actual = p.getBalance();
-        int expected = 26000;
-
         assertEquals(expected, actual);
-
     }
 
     @Test
     void onReject() {
-        p = new Player("benny", 3000);
-
-        double amount = p.getBalance() * 0.1;
-        Bank.withdraw(p.getBalance(), p);
-
-        int actual = p.getBalance();
-        double expected = p.getBalance() * 0.1;
-
-        assertEquals(expected,actual);
 
     }
-
-
 }

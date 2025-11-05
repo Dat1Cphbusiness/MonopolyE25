@@ -13,7 +13,7 @@ public class  Game {
     TextUI ui = new TextUI();
     FileIO io = new FileIO();
     Player currentPlayer;
-    private Board b;
+    public Board b;
     Dice dice = new Dice();
     public Game(String name, int maxPlayers){
         this.name = name;
@@ -41,7 +41,7 @@ public class  Game {
 
     }
 
- private void buildBoard(){
+ public void buildBoard(){
 
      String[] carddata = io.readData("data/carddata.csv",33);
      String[] fielddata = io.readData("data/fielddata.csv", 40);
