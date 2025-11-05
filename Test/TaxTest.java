@@ -29,6 +29,11 @@ class TaxTest {
 
     @Test
     void onReject() {
-
+        Field f = game.b.getField(5);
+        f.onLand(p);
+        f.onReject(p);
+        int expected = 27000;//10 procent trukket fra de 30000
+        int actual = p.getBalance();
+        assertEquals(expected, actual);
     }
 }

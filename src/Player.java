@@ -5,7 +5,7 @@ public class Player {
     private String name;
     private int balance;
     private int position;
-    private ArrayList<Property> deeds;
+    private ArrayList<Property> deeds = new ArrayList<>();
     ArrayList<Card> chanceCards;
     boolean hasWildcard;
     private int diceRoll;
