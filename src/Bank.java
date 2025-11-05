@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+
 public class Bank {
     private static int balance = 1000000;
+    private static ArrayList<Player>customers;
 
     public static void deposit(int amount, Player p){
         if(balance > amount) {
@@ -26,6 +29,16 @@ public class Bank {
         }
         deposit(amount, recipient);
         return true;
+    }
+
+    public static void setPlayers(ArrayList<Player>players){
+        customers=players;
+    }
+
+    public static void collectFromPlayers(int amount, Player reciever){
+        for(Player p: customers){
+        Bank.transfer(amount, p, reciever);
+        }
     }
 
 

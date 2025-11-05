@@ -15,10 +15,13 @@ public class  Game {
     Player currentPlayer;
     private Board b;
     Dice dice = new Dice();
+
+
     public Game(String name, int maxPlayers){
         this.name = name;
         this.maxPlayers = maxPlayers;
         players = new ArrayList<>();
+        Bank.setPlayers(players);
     }
 
 

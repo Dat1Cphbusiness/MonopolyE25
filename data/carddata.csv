@@ -14,9 +14,9 @@ Betal 3000 kr for bilforsikring;0;3000;payment
 Betal 500 kr for tandlægeregning;0;500;payment
 Betal 1000 kr i parkeringsbøde;0;1000;payment
 Ryk frem til nærmeste færge og betal dobbelt leje;0;0;takeFerry
-Du har snydt i skat. Ryk i fængsel;0;0;moveToField
+Du har snydt i skat. Ryk i fængsel;0;0;prison
 Benyt dette kort til at komme ud af fængslet;0;0;wildcard
-Gå i fængsel. Ryk direkte i fængsel;0;0;moveToField
+Gå i fængsel. Ryk direkte i fængsel;0;0;prison
 Ryk 3 felter tilbage;0;0;moveSteps
 Tag til Rådhuspladsen;0;0;moveToField
 Tag til Frederiksberg Allé. Hvis du passerer Start modtag 4000 kr;4000;0;moveToField
