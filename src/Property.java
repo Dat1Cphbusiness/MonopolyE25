@@ -21,7 +21,7 @@ public class Property extends Field {
         String msg = super.onLand(p);
         if (owner == null) {
 
-            option += "buy";
+            option = "buy";
             msg += "Vil du købe? (Y/N)";
 
         }else if (owner != p) {

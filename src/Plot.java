@@ -61,12 +61,14 @@ public class Plot extends Property {
 
     @Override
     public String onAccept(Player p) {
+        String msg = super.onAccept(p);
         if(this.option == "build"){
-
             Bank.withdraw(100,p);
             buildings++;
+            msg = p.getName()+" har bygget";
+
         }
-        return super.onAccept(p);
+        return msg;
     }
 
     @Override
