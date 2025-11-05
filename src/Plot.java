@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Plot extends Property {
 
     public Plot(int ID, String label, int cost, int income, int seriesID) {
@@ -11,8 +13,7 @@ public class Plot extends Property {
 
     @Override
     public String onLand(Player p) {
-       // String genericMessage = super.onLand(p);
-      // String specificMessage = genericMessage+ " vil du købe?";
+
 
         String msg = super.onLand(p);
         if (owner == p && checkForMonopoly()) {
@@ -21,21 +22,39 @@ public class Plot extends Property {
         }
         return msg;
 
-        // if owner is current player
-        //if yes continue
-        //else no
-        // if field is monopolized
-        // if yes continue
-        //else no
-        //does player want accept option to build?
-        // if yes then Build
-        //else no
 
     }
 
     private boolean checkForMonopoly() {
+        int seriesSize = 3;
+        ArrayList<Property> deedsInSeries = new ArrayList<>();
 
-        return false;
+        if (seriesID == 1 || seriesID == 5 || seriesID == 10)
+        {
+            seriesSize = 2;
+        } else if (seriesID == 2)
+        {
+            seriesSize = 4;
+        }
+
+        for (Property deed : owner.getDeeds())
+        {
+            if (deed.seriesID == this.seriesID)
+            {
+                deedsInSeries.add(deed);
+            }
+        }
+
+        if (deedsInSeries.equals(seriesSize))
+        {
+            for (Property deed : deedsInSeries)
+            {
+                deed.isMonopolized = true;
+                return true;
+            }
+        }
+
+            return false;
     }
 
     @Override

@@ -1,6 +1,6 @@
 public class Field {
 
-    private String label;
+    private  String label;
     private int ID;
     protected int cost;
     protected int income;
@@ -31,7 +31,4 @@ public class Field {
     }
 
 
-    public String getOption() {
-        return option;
-    }
 }
