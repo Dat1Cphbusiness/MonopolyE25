@@ -96,4 +96,13 @@ public class Player {
     public ArrayList<Property> getDeeds() {
             return this.deeds;
     }
+
+    public int getTotalWorth(){
+        int netWorth=0;
+        for(Property p: deeds){
+            netWorth+=p.cost;
+        }
+        netWorth+=this.balance;
+        return netWorth;
+    }
 }
