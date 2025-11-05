@@ -38,7 +38,13 @@ public class Property extends Field {
 
     @Override
     public String onAccept(Player p) {
-        return super.onAccept(p);
+        String msg = "";
+        if(this.option.equals("buy")){
+            p.buyProperty(this);
+            msg = p.getName()+" har nu købt "+this;
+
+        }
+        return msg;
     }
 
     @Override

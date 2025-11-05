@@ -90,6 +90,7 @@ class Property{
 }
 
 class Plot{
+ - int buildings
  + Plot(int ID, String label, int cost, int income, int seriesID)
  + String toString()
   + String onLand(Player p)

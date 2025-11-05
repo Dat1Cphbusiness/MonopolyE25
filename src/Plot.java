@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Plot extends Property {
 
+
+    private int buildings;
     public Plot(int ID, String label, int cost, int income, int seriesID) {
         super(ID, label, cost, income, seriesID);
     }
@@ -59,6 +61,11 @@ public class Plot extends Property {
 
     @Override
     public String onAccept(Player p) {
+        if(this.option == "build"){
+
+            Bank.withdraw(100,p);
+            buildings++;
+        }
         return super.onAccept(p);
     }
 

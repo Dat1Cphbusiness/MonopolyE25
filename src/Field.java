@@ -30,5 +30,9 @@ public class Field {
         return " ";
     }
 
+    public String getOption(){
+        return option;
+    }
+
 
 }
